@@ -81,6 +81,16 @@
                 <% if alert %>
                     <p class="alert alert-danger"><%= alert %></p>
                 <% end %>
+
+                <div class="form-group">
+                  <label class="control-label">
+                    Name
+                  </label>
+                  <div class="controls">
+                    <input type="text" class="form-control" placeholder="full name here">
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <label class="control-label">
                     Email
@@ -92,23 +102,15 @@
 
                 <div class="form-group">
                   <label class="control-label">
-                    Password
-                  </label>
-                  <div class="controls">
-                    <input type="text" class="form-control" placeholder="your@email.com">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label">
                     Which of our services would you like to try first?
                   </label>
                   <div class="controls">
                     <select class="form-control">
-                      <option value="0" selected>Select an option</option>
+                      <option value="0" selected>Select a service</option>
                       <option value="1">Asset management</option>
-                      <option value="1">GPS Monitoring</option>
-                      <option value="1">Maintenance management</option>
-                      <option value="1">Other</option>
+                      <option value="1">GPS monitoring</option>
+                      <option value="1">Maintenance optimization</option>
+                      <option value="1">Business Reporting</option>
                     </select>
                   </div>
                 </div>
