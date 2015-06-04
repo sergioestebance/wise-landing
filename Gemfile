@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'coffee-rails', '~> 4.0.0'
 gem 'sass-rails', '~> 4.0.3'
@@ -43,12 +40,17 @@ group :test, :development do
   gem "capybara"
   gem "database_cleaner"
   gem "selenium-webdriver"
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
-gem 'rails_12factor', group: :production
 
 # Use unicorn as the app server
 # gem 'unicorn'
