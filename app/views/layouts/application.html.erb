@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+
+  <title>Wamchile</title>
+  <meta name="fragment" content="!">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Sergio Esteban @onthebeach, @RABOIT">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="">
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@saferscort">
+  <meta name="twitter:creator" content="@saferscort">
+  <meta name="twitter:title" content="Cuporn - Coupons for coolest parties">
+  <meta name="twitter:description" content="Get coupons for bachelors parties, friends partie or just to enjoy yourself ">
+  <meta name="twitter:image:src" content="https://img.youtube.com/vi/Poj6_O-GImE/0.jpg">
+
+
+</head>
+<body>
+
+
+  <%= yield %>
+
+
+
+<!-- Modal -->
+<div class="modal" id="modal_contenido" tabindex="-1" role="dialog" aria-labelledby="modal_contenido_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!--
+      <div class="modal-header">
+        <button type="button" class="close hidden" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel"><i class="fa fa-list"></i> registration form</h4>
+      </div>
+      -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 text-center" style="margin-bottom:10px">
+            <div class="row-fluid">
+              <div class="col-md-4">
+                <i class="text-primary fa fa-tachometer fa-3x"></i> <br> <strong>Real-time Data Analysis</strong>
+              </div>
+              <div class="col-md-4">
+                <i class="text-info fa fa-gears fa-3x"></i> <br> <strong>Maintenance Optimization</strong>
+              </div>
+              <div class="col-md-4">
+                <i class="text-danger fa fa-users fa-3x"></i> <br> <strong>Decision-making Support</strong>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md-12">
+            <hr>
+          </div>
+
+          <div class="col-md-12">
+            <!--
+          FORMULARIO DE REGISTRO
+          -->
+            <div class="row">
+              <div class="col-xs-12">
+                <% if notice %>
+                    <p class="alert alert-success"><%= notice %></p>
+                <% end %>
+                <% if alert %>
+                    <p class="alert alert-danger"><%= alert %></p>
+                <% end %>
+                <div class="form-group">
+                  <label class="control-label">
+                    Email
+                  </label>
+                  <div class="controls">
+                    <input type="text" class="form-control" placeholder="your@email.com">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label">
+                    Password
+                  </label>
+                  <div class="controls">
+                    <input type="text" class="form-control" placeholder="your@email.com">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">
+                    Which of our services would you like to try first?
+                  </label>
+                  <div class="controls">
+                    <select class="form-control">
+                      <option value="0" selected>Select an option</option>
+                      <option value="1">Asset management</option>
+                      <option value="1">GPS Monitoring</option>
+                      <option value="1">Maintenance management</option>
+                      <option value="1">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-success btn-lg"><i class="fa fa-th-list"></i> REGISTER</button>
+        <a class="pull-left" data-dismiss="modal" style="margin-top:15px">close</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
