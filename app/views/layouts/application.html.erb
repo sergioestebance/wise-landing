@@ -52,13 +52,13 @@
         <div class="row">
           <div class="col-md-12 text-center" style="margin-bottom:10px">
             <div class="row-fluid">
-              <div class="col-md-4">
+              <div id ="real-time-icon" class="col-md-4 header-icons">
                 <i class="text-info fa fa-tachometer fa-3x"></i> <br> <strong>Real-time Data Analysis</strong>
               </div>
-              <div class="col-md-4">
+              <div id="maintenance-icon" class="col-md-4">
                 <i class="text-info fa fa-gears fa-3x"></i> <br> <strong>Maintenance Optimization</strong>
               </div>
-              <div class="col-md-4">
+              <div id="reporting-icon" class="col-md-4">
                 <i class="text-info fa fa-users fa-3x"></i> <br> <strong>Decision-making Support</strong>
               </div>
             </div>
@@ -87,7 +87,7 @@
                     Name
                   </label>
                   <div class="controls">
-                    <input type="text" class="form-control" placeholder="full name here">
+                    <input id="name-input" type="text" class="form-control" placeholder="full name here">
                   </div>
                 </div>
 
@@ -96,7 +96,7 @@
                     Email
                   </label>
                   <div class="controls">
-                    <input type="text" class="form-control" placeholder="your@email.com">
+                    <input id="email-input" type="text" class="form-control" placeholder="your@email.com">
                   </div>
                 </div>
 
@@ -107,10 +107,10 @@
                   <div class="controls">
                     <select class="form-control">
                       <option value="0" selected>Select a service</option>
-                      <option value="1">Asset management</option>
-                      <option value="1">GPS monitoring</option>
-                      <option value="1">Maintenance optimization</option>
-                      <option value="1">Business Reporting</option>
+                      <option class="option-select" id="asset-option" value="1">Asset management</option>
+                      <option class="option-select" id="gps-option" value="1">GPS monitoring</option>
+                      <option class="option-select" id="maintenance-option" value="1">Maintenance optimization</option>
+                      <option class="option-select" id="reporting-option" value="1">Business Reporting</option>
                     </select>
                   </div>
                 </div>
@@ -124,13 +124,33 @@
       <div class="modal-footer">
 
         <button type="button" class="btn btn-success btn-lg"><i class="fa fa-th-list"></i> REGISTER</button>
-        <a class="pull-left" data-dismiss="modal" style="margin-top:15px">close</a>
+        <a id="close-modal" class="pull-left modal-buttons" data-dismiss="modal" style="margin-top:15px">close</a>
 
       </div>
     </div>
   </div>
 </div>
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+      ga('create', 'UA-40741810-10', 'auto');
+      ga('send', 'pageview');
+
+          $(document).ready(function(){
+              $(".modal-buttons").on('click',function(){
+                  ga('send','event',$(this).attr('id'),'click','modal-buttons');
+              });
+
+              $(".header-icons").on('click',function(){
+                  ga('send','event',$(this).attr('id'),'click','header-icons')
+              })
+
+          });
+
+  </script>
 
 </body>
 </html>
