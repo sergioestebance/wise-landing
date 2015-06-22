@@ -20,6 +20,7 @@ gem 'therubyracer',  platforms: :ruby
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch=>'bootstrap3'
 gem 'font-awesome-less'
 gem 'jquery-rails'
+gem 'mandrill_mailer'
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -44,11 +45,11 @@ group :test, :development do
   gem 'sqlite3'
 end
 
+gem 'pg'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
 
 

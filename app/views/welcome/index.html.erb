@@ -7,6 +7,7 @@
     <h1 id="colorize">Wise Asset Management</h1>
     <div class="divider"></div>
     <a href="#" id="open-modal" class="big-background-btn btn-warning modal-buttons" data-toggle="modal" data-target="#modal_contenido" data-backdrop="static" data-keyboard="false">TRY IT</a>
+    <a href="#" id="demo-button" class="big-background-btn btn-info ">DEMO</a>
     <%=
         if false
           link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "big-background-btn"
@@ -17,3 +18,116 @@
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal" id="modal_contenido" tabindex="-1" role="dialog" aria-labelledby="modal_contenido_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!--
+      <div class="modal-header">
+        <button type="button" class="close hidden" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel"><i class="fa fa-list"></i> registration form</h4>
+      </div>
+      -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 text-center" style="margin-bottom:10px">
+            <div class="row-fluid">
+              <div id ="real-time-icon" class="col-md-4 header-icons">
+                <i class="text-info fa fa-tachometer fa-3x"></i> <br> <strong>Real-time Data Analysis</strong>
+              </div>
+              <div id="maintenance-icon" class="col-md-4">
+                <i class="text-info fa fa-gears fa-3x"></i> <br> <strong>Maintenance Optimization</strong>
+              </div>
+              <div id="reporting-icon" class="col-md-4">
+                <i class="text-info fa fa-users fa-3x"></i> <br> <strong>Decision-making Support</strong>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md-12">
+            <hr>
+          </div>
+
+          <div class="col-md-12">
+            <!--
+          FORMULARIO DE REGISTRO
+          -->
+            <div class="row">
+              <div class="col-xs-12">
+                <p id="modal_alert" class="hidden alert alert-success"></p>
+
+                <%= form_for @visita, :url => suscribe_path , :remote => true, data: {type: :json } , html: { role: :form, 'data-model' => 'visita', :id => 'suscription-form' } do |f| %>
+                    <div class="form-group">
+                      <label class="control-label">
+                        Name
+                      </label>
+                      <div class="controls">
+                        <%= f.text_field :name, :type=>'text', :placeholder => 'full name here', :class => 'form-control'%>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label">
+                        Email
+                      </label>
+                      <div class="controls">
+                        <%= f.text_field :email, :type=>'text', :placeholder => 'your@email.com', :class => 'form-control'%>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">
+                        Which of our services would you like to try first?
+                      </label>
+                      <div class="controls">
+                        <select class="form-control" id="service_option">
+                          <option value="0" selected>Select a service</option>
+                          <option class="option-select" id="asset-option" value="1">Asset management</option>
+                          <option class="option-select" id="gps-option" value="1">GPS monitoring</option>
+                          <option class="option-select" id="maintenance-option" value="1">Maintenance optimization</option>
+                          <option class="option-select" id="reporting-option" value="1">Business Reporting</option>
+                        </select>
+                      </div>
+                    </div>
+                        <%= f.hidden_field :referral_by, :value=> params[:ref] %>
+
+                <% end %>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+
+        <button id="suscribe-button" type="button" class="btn btn-success btn-lg"><i class="fa fa-th-list"></i> GO FOR IT</button>
+        <a id="close-modal" class="pull-left modal-buttons" data-dismiss="modal" style="margin-top:15px">close</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+      var boton = $("#suscribe-button");
+      var form = $("#suscription-form");
+      var modal = $('#modal_alert')
+      boton.click(function(){
+          form.submit();
+        });
+
+      form.on('ajax:success',function(e, data, status, xhr){
+          modal.text(data.message);
+          modal.removeClass('hidden');
+      }).on('ajax:error',function(e, xhr, status, error){
+          modal.text('Failed.');
+          modal.removeClass('hidden');
+      });
+
+  });
+</script>
